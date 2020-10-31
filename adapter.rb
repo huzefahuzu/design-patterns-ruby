@@ -1,34 +1,25 @@
-class FirstName
-  def print_f_name
-    return 'Ajay'
+# This is a basic adapter for student details using which every details of student can be fetched.
+class StudentAdapter
+  def f_name
+    return 'Bob'
+  end
+
+  def l_name
+    return 'Hassein'
+  end
+
+  def address
+    return 'behind nelson street'
   end
 end
 
-class LastName
-  def print_l_name
-    return 'Barot'
+class AttendenceLog
+  def process(student)
+    puts "#{student.f_name} #{student.l_name} #{student.address}"
   end
 end
 
-class Rubish
-  def print_r_msg
-    return 'Pahli fursat se nikal'
-  end
-end
-
-class Merger
-  def process(firstname, lastname, rubish)
-    f = firstname.print_f_name
-    l = lastname.print_l_name
-    r = rubish.print_r_msg
-    p "#{f} #{l} #{r}"
-  end
-end
-
-first = FirstName.new
-last = LastName.new
-rubish = Rubish.new
-
-Merger.new.process(first, last, rubish)
+student = StudentAdapter.new
+AttendenceLog.new.process(student)
 
 # https://github.com/davidgf/design-patterns-in-ruby/blob/master/adapter.md
